@@ -33,12 +33,12 @@ None, but supports different transport backends. Currently supported:
  * urllib (synchronous, the default if requests isn't available)
  * `twisted <https://twistedmatrix.com/>`_ (asynchronous)
 
-Other transports are easy to add, see `transport <https://github.com/nsone/nsone-python/tree/develop/nsone/rest/transport>`_
+Other transports are easy to add, see `transport <https://github.com/nsone/nsone-python/tree/master/nsone/rest/transport>`_
 
 Examples
 ========
 
-See the `examples directory <https://github.com/nsone/nsone-python/tree/develop/examples>`_
+See the `examples directory <https://github.com/nsone/nsone-python/tree/master/examples>`_
 
 Documentation
 =============
