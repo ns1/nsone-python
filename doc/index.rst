@@ -44,7 +44,7 @@ Simple example:
 
 Note that all zone and record changes propagate in real time throughout the NSONE platform.
 
-There are more examples in the `examples directory <https://github.com/nsone/nsone-python/tree/develop/examples>`_.
+There are more examples in the `examples directory <https://github.com/nsone/nsone-python/tree/master/examples>`_.
 
 Contributions
 -------------

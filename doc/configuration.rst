@@ -55,6 +55,6 @@ This example shows two different API keys. Which to use can be selected at runti
 More
 ----
 
-There are more examples in the `config.py example <https://github.com/nsone/nsone-python/tree/develop/examples/config.py>`_.
+There are more examples in the `config.py example <https://github.com/nsone/nsone-python/tree/master/examples/config.py>`_.
 For the full Config object reference API, see :mod:`nsone.config`
 
