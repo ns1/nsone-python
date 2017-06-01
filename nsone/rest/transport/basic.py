@@ -60,6 +60,7 @@ class BasicTransport(TransportBase):
         # always pass the body to the handleProblem function
         try:
             resp = opener.open(request, timeout=self._timeout)
+            body = resp.read()
         except HTTPError as e:
             resp = e
             body = resp.read()
