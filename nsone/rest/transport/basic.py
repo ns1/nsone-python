@@ -17,7 +17,7 @@ except ImportError:
     from urllib2 import HTTPError
 import json
 import socket
-import ssl
+import sys
 
 
 class BasicTransport(TransportBase):
@@ -36,12 +36,18 @@ class BasicTransport(TransportBase):
         self._logHeaders(headers)
         self._log.debug("%s %s %s" % (method, url, data))
 
-        context = ssl.create_default_context()
-        if not self._verify:
-            context.check_hostname = False
-            context.verify_mode = ssl.CERT_NONE
+        # Some changes to the ssl and urllib modules were introduced in Python
+        # 2.7.9, so we work around those differences here.
+        if sys.version_info >= (2, 7, 9):
+            import ssl
+            context = ssl.create_default_context()
+            if not self._verify:
+                context.check_hostname = False
+                context.verify_mode = ssl.CERT_NONE
+            opener = build_opener(HTTPSHandler(context=context))
+        else:
+            opener = build_opener(HTTPSHandler)
 
-        opener = build_opener(HTTPSHandler(context=context))
         request = Request(url, headers=headers, data=data)
         request.get_method = lambda: method
 
