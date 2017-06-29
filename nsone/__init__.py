@@ -159,7 +159,7 @@ class NSONE:
             if len(parts) <= 2:
                 zone = '.'.join(parts)
             else:
-                zone = '.'.join(domain.split('.')[1:])
+                zone = '.'.join(parts[1:])
         z = nsone.zones.Zone(self.config, zone)
         return z.loadRecord(domain, type, callback=callback, errback=errback,
                             **kwargs)
