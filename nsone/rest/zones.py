@@ -10,6 +10,7 @@ from . import resource
 class Zones(resource.BaseResource):
 
     ROOT = 'zones'
+    SEARCH_ROOT = 'search'
 
     INT_FIELDS = ['ttl', 'retry', 'refresh', 'expiry', 'nx_ttl']
     PASSTHRU_FIELDS = ['secondary', 'hostmaster', 'meta', 'networks', 'link']
@@ -65,8 +66,8 @@ class Zones(resource.BaseResource):
         if q is not None:
             params['q'] = q
         if has_geo:
-            params['has_geo'] = has_geo
-        return self._make_request('GET', '%s/%s/search' % (self.ROOT, zone),
+            params['geo'] = has_geo
+        return self._make_request('GET', '%s/zone/%s' % (self.SEARCH_ROOT, zone),
                                   params=params,
                                   callback=callback,
                                   errback=errback)
