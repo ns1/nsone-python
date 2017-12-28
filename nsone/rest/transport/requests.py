@@ -37,7 +37,6 @@ class RequestsTransport(TransportBase):
         self._logHeaders(headers)
         resp = self.REQ_MAP[method](url, headers=headers, verify=self._verify,
                                     data=data, files=files, params=params, timeout=self._timeout)
-        print("URL: %s, params: %s" % (url, params))
         if resp.status_code != 200:
             if errback:
                 errback(resp)
