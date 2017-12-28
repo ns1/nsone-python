@@ -116,6 +116,16 @@ class NSONE:
         zone = nsone.zones.Zone(self.config, zone)
         return zone.load(callback=callback, errback=errback)
 
+    def searchZone(self, zone, q=None, has_geo=False, callback=None, errback=None):
+        """
+        Search a zone for a given search query (e.g., for geological data, etc)
+
+        :param zone: NOT a string like loadZone - an already loaded nsone.zones.Zone, like one returned from loadZone
+        :return:
+        """
+        import nsone.zones
+        return zone.search(q, has_geo, callback=callback, errback=errback)
+
     def createZone(self, zone, zoneFile=None, callback=None, errback=None,
                    **kwargs):
         """
