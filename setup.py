@@ -1,45 +1,25 @@
-import os
-import sys
-import nsone
+from setuptools import setup, find_packages
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from codecs import open
+from os import path
 
-path, script = os.path.split(sys.argv[0])
-os.chdir(os.path.abspath(path))
+cwd = path.abspath(path.dirname(__file__))
 
-tests_require = [
-    'pytest',
-    'pytest-pep8',
-    'pytest-cov',
-    'mock',
-]
+with open(path.join(cwd, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='nsone',
-    # flake8: noqa
-    version=nsone.version,
-    description='Python SDK for the NSONE DNS platform',
-    author='Shannon Weyrick',
-    author_email='sweyrick@nsone.net',
-    url='https://github.com/nsone/nsone-python',
-    packages=['nsone', 'nsone.rest', 'nsone.rest.transport'],
-    setup_requires=['pytest-runner'],
-    tests_require=tests_require,
-    keywords='dns development rest sdk nsone',
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Developers",
-        "Intended Audience :: Information Technology",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.3",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        "Topic :: Internet :: Name Service (DNS)"
-    ])
+    version='0.9.100',
+    description='Legacy Python SDK for the NS1 DNS platform',
+    long_description=long_description,
+    license='MIT',
+    install_requires=['ns1-python'],
+
+    author='NS1 Developers',
+    author_email='devteam@ns1.com',
+    url='https://github.com/ns1/nsone-python',
+
+    packages=find_packages(exclude=['tests']),
+    test_suite='tests',
+)
