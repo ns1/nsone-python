@@ -2,16 +2,11 @@ sudo: false
 language: python
 python:
   - '2.7'
-  - '3.4'
+  - '3.6'
 install:
-  - pip install tox-travis
-  - pip install Sphinx --use-mirrors
-script:
-  - tox
   - python setup.py install
-  - python setup.py bdist_wheel
-  - cd doc
-  - make html
+script:
+  - python setup.py test
 notifications:
   slack:
     secure: kXWHt2FwGzohgwmwDH262R3B359iRmsjPE/wF90ur6/TOfTvxuZicpPOVWsglgDgVP92zMklwgOs941IJmg4VVvqjuvDYeaMB+KLHvxb4Vl0pOg7mLpOXmIVt3NwL3+miSwoQ24XHJb6vGzubeHAjSXpD0N1tVxb792DvHztDTo=
