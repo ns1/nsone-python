@@ -1,9 +1,10 @@
 Legacy NS1 Python SDK
 =====================
 
-This SDK is [deprecated](https://github.com/ns1/community/blob/master/project_status/DEPRECATED.md) in favor of `ns1-python <https://github.com/ns1/ns1-python>`_
-and should not be used for new projects. The code in this repository provides
-just a thin wrapper for the new SDK to allow easier migration.
+> This SDK is [deprecated](https://github.com/ns1/community/blob/master/project_status/DEPRECATED.md)
+in favor of `ns1-python <https://github.com/ns1/ns1-python>` _and should not be used for new projects._
+
+The code in this repository provides just a thin wrapper for the new SDK to allow easier migration.
 
 Migration to the new SDK
 ------------------------
